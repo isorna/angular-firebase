@@ -1,7 +1,7 @@
-Angular Firebase Meetup @fictizia
+Angular Firebase Meetup @fictiziaformacion
 ================
 
-Web app used for the meetup @fictizia.
+Web app used for the meetup @fictiziaformacion.
 
 ## Installation
 
