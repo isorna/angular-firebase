@@ -1,0 +1,9 @@
+{
+  "firebase": "angularfire-meetup",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
