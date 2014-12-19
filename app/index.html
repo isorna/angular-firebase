@@ -2,19 +2,71 @@
 <html ng-app="angularFireDemo">
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width">
 	<title>AngularFire Demo</title>
 	<base href="/">
+	<link rel="manifest" href="manifest.json">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" sizes="192x192" href="img/angularjs.192.png">
+    <link rel="icon" sizes="128x128" href="img/angularjs.128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="img/angularjs.128.png">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="img/angularjs.128.png">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/themes/orange-theme.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
-    <section id="main">
-        <h1>Hello World!</h1>
-	</section>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.js"></script>
-	<script src="//cdn.firebase.com/js/client/2.0.0/firebase.js"></script>
-	<script src="//cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+<body ng-cloak>
+    <div ng-controller="MessagesCtrl" layout="column" layout-fill>
+        <md-toolbar class="md-primary" md-theme="orange" md-scroll-shrink>
+            <div class="md-toolbar-tools">
+                <span ng-hide="userInfo.authenticated">AngularFire Demo</span>
+                <img ng-show="userInfo.authenticated" ng-src="{{user.github.cachedUserProfile.avatar_url}}" class="face" />
+                <span ng-show="userInfo.authenticated">{{user.github.displayName}}</span>
+                <!-- fill up the space between left and right area -->
+                <span flex></span>
+                <md-button ng-show="userInfo.authenticated" ng-click="post($event)" class="md-accent md-raised md-hue-3">Post</md-button>
+                <md-button ng-show="userInfo.authenticated" ng-click="logOut($event)">Logout</md-button>
+                <md-button ng-hide="userInfo.authenticated" ng-click="logIn($event)">Login</md-button>
+            </div>
+        </md-toolbar>
+        <md-content class="md-content">
+            <md-list>
+                <md-item ng-hide="userInfo.authenticated">
+                    <md-item-content>
+                        <div class="md-tile-content">
+                            <h3>Welcome!</h3>
+                            <p>Please login to see the demo in action.</p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item ng-if="userInfo.authenticated" ng-repeat="message in messages | reverse">
+                    <md-item-content>
+                    <div class="md-tile-left">
+                        <img ng-src="{{message.face}}" alt="{{message.who}}" class="face">
+                    </div>
+                    <div class="md-tile-content">
+                        <h3><a ng-href="{{message.url}}">{{message.who}}</a></h3>
+                        <p>{{message.text}}</p>
+                    </div>
+                    </md-item-content>
+                    <md-divider ng-if="!$last" inset></md-divider>
+                </md-item>
+            </md-list>
+        </md-content>
+    </div>
+	
+	<!-- Angular Material Dependencies -->
+	<script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
+	<!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
+	<script src="//ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+	<!-- Firebase -->
+	<script src="//cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="//cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+	<!-- Our Angular Fire main script -->
 	<script src="js/app.js"></script>
 </body>
 </html>
