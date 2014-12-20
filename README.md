@@ -9,10 +9,10 @@ Web app used for the meetup @fictiziaformacion.
 2. Create a [firebase](https://www.firebase.com/) account and app.
 2. Clone the repository from github: [github.com/isorna/angular-firebase.git](https://github.com/isorna/angular-firebase.git).
 3. Set up your app [firebase hosting](https://YOUR-APP-URL.firebaseio.com/?page=Hosting).
- * Install firebase tools: `sudo npm install -g firebase-tools`.
- * `cd` into your website directory and run `firebase init`.
- * Then deploy your website with `firebase deploy`.
-4. Visit your app online: [angularfire-meetup.firebaseapp.com](https://angularfire-meetup.firebaseapp.com/).
+4. Activate Login & Auth for Github inside firebase, and create a github app.
+5. Inside `js/app.js` and `firebase.json`, replace __angularfire-meetup__ with your app URL.
+6. Then deploy your website with `firebase deploy`.
+7. Visit your app online: [YOUR-APP-URL.firebaseapp.com](https://YOUR-APP-URL.firebaseapp.com/).
 
 ## Firebase
 
@@ -23,6 +23,9 @@ Web app used for the meetup @fictiziaformacion.
 * User Login & Authentication.
  * Register the corresponding app (Github, twitter, ...), then activate it from the dashboard.
  * Use firebase api for authentication: [login with github](https://www.firebase.com/docs/web/guide/login/github.html).
+* Creating a new project is easy:
+ * Install firebase tools: `sudo npm install -g firebase-tools`.
+ * `cd` into your website directory and run `firebase init`.
 
 ## Links
 
