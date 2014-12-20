@@ -46,7 +46,7 @@
                     </div>
                     <div class="md-tile-content">
                         <h3><a ng-href="{{message.url}}">{{message.who}}</a></h3>
-                        <p>{{message.text}}</p>
+                        <p><em>{{message.timestamp | date:'MM/dd/yyyy @ h:mma'}}</em>&nbsp;{{message.text}}</p>
                     </div>
                     </md-item-content>
                     <md-divider ng-if="!$last" inset></md-divider>

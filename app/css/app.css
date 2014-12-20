@@ -8,8 +8,18 @@
   width: 48px;
   margin: 16px;
   border-radius: 48px;
-  border: 1px solid #ddd;}
-  
+  border: 1px solid #ddd;
+}
+
+.md-toolbar-tools .face {
+  width: 32px;
+}
+
 form {
   padding: 20px;
+}
+
+em {
+  font-size: .9em;
+  color: #7e7e7e;
 }
