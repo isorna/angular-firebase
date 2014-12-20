@@ -33,3 +33,4 @@ Web app used for the meetup @fictiziaformacion.
 * [User authentication with firebase](https://www.firebase.com/docs/web/guide/user-auth.html).
 * [Security & rules guide](https://www.firebase.com/docs/security/guide/securing-data.html).
 * [Angular Material Design project on github](https://github.com/angular/material).
+* [See the application Live](https://angularfire-meetup.firebaseapp.com/)
